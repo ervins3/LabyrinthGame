@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth Game", "Assembly-CSharp-firstpass.csproj", "{F524ED6B-CF6E-A6D0-798B-D033D2E9481A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth Game", "Assembly-CSharp.csproj", "{E51AF7B5-0E19-6A6D-5864-758BC8969FE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth Game", "Assembly-CSharp-Editor-firstpass.csproj", "{81A801D8-138D-5BE7-58EE-99532275720C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F524ED6B-CF6E-A6D0-798B-D033D2E9481A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F524ED6B-CF6E-A6D0-798B-D033D2E9481A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F524ED6B-CF6E-A6D0-798B-D033D2E9481A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F524ED6B-CF6E-A6D0-798B-D033D2E9481A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E51AF7B5-0E19-6A6D-5864-758BC8969FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E51AF7B5-0E19-6A6D-5864-758BC8969FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E51AF7B5-0E19-6A6D-5864-758BC8969FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E51AF7B5-0E19-6A6D-5864-758BC8969FE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A801D8-138D-5BE7-58EE-99532275720C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A801D8-138D-5BE7-58EE-99532275720C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A801D8-138D-5BE7-58EE-99532275720C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A801D8-138D-5BE7-58EE-99532275720C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
