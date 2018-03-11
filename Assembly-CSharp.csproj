@@ -51,9 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Gun.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_SMC_Camera.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_SMC_Handler.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_Text.cs" />
+     <Compile Include="Assets\Target.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
