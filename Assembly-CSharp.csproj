@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FollowPlayer.cs" />
      <Compile Include="Assets\Gun.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_SMC_Camera.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_SMC_Handler.cs" />
