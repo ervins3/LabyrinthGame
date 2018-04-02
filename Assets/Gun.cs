@@ -16,6 +16,8 @@ public class Gun : MonoBehaviour {
 
 	public Animator animator;
 
+	public Text ammoText;
+
 	private AudioSource audioSource;
 	public AudioClip shootSound;
 	public Camera fpsCam;
@@ -52,6 +54,11 @@ public class Gun : MonoBehaviour {
 			nextTimeToFire = Time.time + 1f / fireRate;
 			Shoot();
 		}
+
+		/*if (Input.GetKeyDown("r")) {
+			Reload ();
+			Debug.Log ("nospiests r");
+		}*/
 		
 	}
 
@@ -68,6 +75,7 @@ public class Gun : MonoBehaviour {
 
 		currentAmmo = maxAmmo;
 		isReloading = false;
+		updateAmmoText();
 	}
 
 	void Shoot (){
@@ -76,24 +84,33 @@ public class Gun : MonoBehaviour {
 		muzzleFlash.Play();
 		RaycastHit hit;
 
-		currentAmmo--;
+		currentAmmo--; 
+		updateAmmoText(); // update ui ammo text
 
 		if (Physics.Raycast (fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) {
 
-			Target target = hit.transform.GetComponent<Target>();
-			if (target != null) {
-				target.TakeDamage(damage);
-			}
-			if (hit.rigidbody != null) {
-				hit.rigidbody.AddForce (-hit.normal * impactForce);
-			}
-			GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-			Destroy(impactGO, 2f);	
+				Debug.Log (hit.transform.name);
+
+				Target target = hit.transform.GetComponent<Target> ();
+				if (target != null) {
+					target.TakeDamage (damage);
+				}
+				if (hit.rigidbody != null) {
+					hit.rigidbody.AddForce (-hit.normal * impactForce);
+				}
+				GameObject impactGO = Instantiate (impactEffect, hit.point, Quaternion.LookRotation (hit.normal));
+				Destroy (impactGO, 2f);	
+
 		}
 		
-		}
+	}
 	private void PlayShootSound()
 	{
 		audioSource.PlayOneShot(shootSound);
+	}
+
+	private void updateAmmoText()
+	{
+		ammoText.text = currentAmmo + " / " + maxAmmo;
 	}
 }

@@ -26,10 +26,7 @@ public class FollowPlayer : MonoBehaviour {
 		if (Vector3.Distance(transform.position, player.transform.position) < closeEnoughDistance) // check if distance between player and gameobject is greater than close enough value
 		{
 			PerformFollowPlayer();
-		}else
-		{
-			Debug.Log("Nesekoju", gameObject);
-		} 
+		}
 	}
 
 	/// <summary>
@@ -39,7 +36,6 @@ public class FollowPlayer : MonoBehaviour {
 	private void PerformFollowPlayer()
 	{
 		Agent.SetDestination(player.transform.position);
-		Debug.Log("Sekoju", gameObject);
 	}
 
 	// Show the lookRadius in editor
