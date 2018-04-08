@@ -9,8 +9,9 @@ public class Gun : MonoBehaviour {
 	public float fireRate = 15f;
 	public float impactForce = 30f;
 
-	public int maxAmmo = 30;
-	private int currentAmmo;
+	public int totalAmmo = 50;
+	private int currentAmmo = 20;
+	public int ammoPerMag = 20;
 	public float reloadTime = 1f;
 	private bool isReloading = false;
 
@@ -27,8 +28,6 @@ public class Gun : MonoBehaviour {
 	private float nextTimeToFire = 0f;
 
 	void start(){
-		
-		currentAmmo = maxAmmo;
 			
 	}
 
@@ -55,14 +54,19 @@ public class Gun : MonoBehaviour {
 			Shoot();
 		}
 
-		/*if (Input.GetKeyDown("r")) {
-			Reload ();
-			Debug.Log ("nospiests r");
-		}*/
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			if (currentAmmo < ammoPerMag && totalAmmo > 0) {
+				StartCoroutine(Reload());
+			}
+			
+		}
 		
 	}
 
 	IEnumerator Reload(){
+
+		if (totalAmmo <= 0 || currentAmmo == ammoPerMag) yield break;
 
 		isReloading = true;
 		Debug.Log ("Reloading...");
@@ -73,9 +77,15 @@ public class Gun : MonoBehaviour {
 		animator.SetBool ("Reloading", false);
 		yield return new WaitForSeconds (.25f);
 
-		currentAmmo = maxAmmo;
+		int bulletsToLoad = ammoPerMag - currentAmmo;
+		int bulletsToDeduct = (totalAmmo >= bulletsToLoad) ? bulletsToLoad : totalAmmo;
+
+		totalAmmo -= bulletsToDeduct;
+		currentAmmo += bulletsToDeduct;
+
 		isReloading = false;
 		updateAmmoText();
+
 	}
 
 	void Shoot (){
@@ -111,6 +121,6 @@ public class Gun : MonoBehaviour {
 
 	private void updateAmmoText()
 	{
-		ammoText.text = currentAmmo + " / " + maxAmmo;
+		ammoText.text = currentAmmo + " / " + ammoPerMag + "    " + totalAmmo;
 	}
 }
