@@ -19,6 +19,7 @@ public class Health : MonoBehaviour {
 
 	public void TakeDamage(float amount) //player health reducing
 	{
+
 		if(!alive)
 		{
 			return;
