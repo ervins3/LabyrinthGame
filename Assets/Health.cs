@@ -10,6 +10,8 @@ public class Health : MonoBehaviour {
 	public float currentHealth = 0f;
 	public bool alive = true;
 
+	//GameManager gameManager;
+
 	// Use this for initialization
 	void Start () {
 
@@ -22,6 +24,7 @@ public class Health : MonoBehaviour {
 
 		if(!alive)
 		{
+			//FindObjectOfType<GameManager> ().EndGame ();
 			return;
 		}
 
@@ -29,7 +32,9 @@ public class Health : MonoBehaviour {
 		{
 			currentHealth = 0;
 			alive = false;
-			Debug.Log ("Dead");
+
+
+
 		}
 
 		currentHealth -= amount;

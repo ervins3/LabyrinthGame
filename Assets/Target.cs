@@ -89,15 +89,19 @@ public class Target : MonoBehaviour {
 		timer = 0f;
 
 		// If the player has health to lose...
-		if(playerHealth.currentHealth > 0)
-		{
+		if (playerHealth.currentHealth > 0) {
 			// ... damage the player.
 			playerHealth.TakeDamage (damage);
+			audioSource.PlayOneShot (playerHurtSound);
+		} else {
+			Debug.Log ("ataks");
+			FindObjectOfType<GameManager> ().EndGame ();
 		}
 	}
 
 	void Die (){
 
+		playerInRange = false;
 		GetComponent<FollowPlayer> ().StopFollow ();
 		animator.SetTrigger ("Death");
 		audioSource.PlayOneShot(zombieDieSound);
