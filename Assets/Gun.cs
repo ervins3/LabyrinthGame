@@ -21,6 +21,8 @@ public class Gun : MonoBehaviour {
 
 	private AudioSource audioSource;
 	public AudioClip shootSound;
+	public AudioClip emptyShotSound;
+	public AudioClip reloadSound;
 	public Camera fpsCam;
 	public ParticleSystem muzzleFlash;
 	public GameObject impactEffect;
@@ -28,7 +30,7 @@ public class Gun : MonoBehaviour {
 	private float nextTimeToFire = 0f;
 
 	void start(){
-			
+		
 	}
 
 	void OnEnable(){
@@ -66,8 +68,14 @@ public class Gun : MonoBehaviour {
 
 	IEnumerator Reload(){
 
-		if (totalAmmo <= 0 || currentAmmo == ammoPerMag) yield break;
-
+		if (totalAmmo <= 0 || currentAmmo == ammoPerMag) {
+			if(totalAmmo <= 0 && Input.GetMouseButtonDown(0)){
+				PlayEmptySound ();
+				yield break;
+			}
+			yield break;
+		}
+		PlayReloadSound ();
 		isReloading = true;
 		Debug.Log ("Reloading...");
 
@@ -117,6 +125,14 @@ public class Gun : MonoBehaviour {
 	private void PlayShootSound()
 	{
 		audioSource.PlayOneShot(shootSound);
+	}
+
+	private void PlayReloadSound(){
+		audioSource.PlayOneShot (reloadSound);
+	}
+
+	private void PlayEmptySound(){
+		audioSource.PlayOneShot (emptyShotSound);
 	}
 
 	private void updateAmmoText()

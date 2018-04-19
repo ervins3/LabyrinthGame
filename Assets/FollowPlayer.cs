@@ -18,9 +18,6 @@ public class FollowPlayer : MonoBehaviour {
 
 	private Animator animator;
 
-	private AudioSource audioSource;
-	//public AudioClip zombieSeesPlayerSound;
-
 	private GameObject player;
 	private NavMeshAgent Agent;
 
@@ -29,7 +26,6 @@ public class FollowPlayer : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player"); //Find player by tag. It can be assigned in game object inspector tag section (below name).
 		Agent = GetComponent<NavMeshAgent>();
 		animator = GetComponent<Animator>();
-		//audioSource = GetComponent<AudioSource>();
 
 	}
 
@@ -54,9 +50,9 @@ public class FollowPlayer : MonoBehaviour {
 			}
 
 		} else {
-
+			
 			if (isHit == false) {
-
+				
 				animator.SetBool("isNearPlayer", false);
 				animator.SetBool("Attack", false);
 				animator.SetBool("Idle", true);
@@ -75,7 +71,8 @@ public class FollowPlayer : MonoBehaviour {
 	/// </summary>
 	/// 
 	private void PerformFollowPlayer()
-	{ 
+	{ 	
+
 		Agent.SetDestination(player.transform.position);
 		animator.SetBool ("isNearPlayer", true);
 	}
