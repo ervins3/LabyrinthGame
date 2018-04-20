@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 114185947907634914}
+  - component: {fileID: 114054221715706628}
+  - component: {fileID: 114371173654556258}
   m_Layer: 2
   m_Name: FPSController
   m_TagString: Player
@@ -136,7 +138,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.724
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -385,7 +387,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4523014314077798}
-  - component: {fileID: 114152324134266826}
   - component: {fileID: 114295921419328204}
   - component: {fileID: 82423828982615606}
   - component: {fileID: 95797954267620066}
@@ -738,7 +739,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.752
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -860,20 +861,19 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114152324134266826
+--- !u!114 &114054221715706628
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056276143379982}
-  m_Enabled: 0
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f40726b6eaac5b41aeb67851cc5d6ab, type: 3}
+  m_Script: {fileID: 11500000, guid: ef83332106554ed4795b04308784cd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet_Emitter: {fileID: 0}
-  Bullet: {fileID: 1231624942625694, guid: 24e712b41224c734fae5b8332acdc6cc, type: 2}
-  Bullet_Forward_Force: 60
+  fadeOutTexture: {fileID: 2800000, guid: 91a2432dc7755674a87b9b48cc629e54, type: 3}
+  fadeSpeed: 0.8
 --- !u!114 &114185947907634914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 0}
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   alive: 1
 --- !u!114 &114295921419328204
 MonoBehaviour:
@@ -905,6 +905,7 @@ MonoBehaviour:
   fireRate: 15
   impactForce: 30
   totalAmmo: 20
+  currentAmmo: 20
   ammoPerMag: 20
   reloadTime: 1
   animator: {fileID: 95797954267620066}
@@ -916,6 +917,19 @@ MonoBehaviour:
   muzzleFlash: {fileID: 198915086488406002}
   impactEffect: {fileID: 1601896319031422, guid: cb69ce3df5d8af443be6664777ed5be4,
     type: 2}
+--- !u!114 &114371173654556258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898a45a3551d51a4684cbfa8b4149430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: 5e51b33bebfef3440b3d4e5cac7099d5, type: 3}
+  fadeSpeed: 2
 --- !u!124 &124408196849892628
 Behaviour:
   m_ObjectHideFlags: 1

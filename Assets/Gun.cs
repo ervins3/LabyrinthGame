@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour {
 	public float impactForce = 30f;
 
 	public int totalAmmo = 50;
-	private int currentAmmo = 20;
+	public int currentAmmo = 20;
 	public int ammoPerMag = 20;
 	public float reloadTime = 1f;
 	private bool isReloading = false;
@@ -29,9 +29,20 @@ public class Gun : MonoBehaviour {
 
 	private float nextTimeToFire = 0f;
 
+	//public GameObject pauseMenuUI;
+
 	void start(){
-		
+		//pauseMenuUI = GameObject.FindGameObjectWithTag ("PlayerUI");
+		currentAmmo = GlobalController.Instance.currentAmmo;
+		updateAmmoText ();
 	}
+
+
+	public void SavePlayer()
+	{
+		GlobalController.Instance.currentAmmo = currentAmmo;
+	}
+
 
 	void OnEnable(){
 		isReloading = false;
@@ -51,6 +62,9 @@ public class Gun : MonoBehaviour {
 		}
 			
 		if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire) {
+			//if(pauseMenuUI.GetComponent<>){
+			//	return;
+		//	}
 			audioSource = GetComponent<AudioSource>();
 			nextTimeToFire = Time.time + 1f / fireRate;
 			Shoot();

@@ -7,7 +7,7 @@ public class Health : MonoBehaviour {
 
 	public Slider HealthBar;
 	public float maxHealth = 100f;
-	public float currentHealth = 0f;
+	public float currentHealth = 100f;
 	public bool alive = true;
 
 	//GameManager gameManager;
@@ -15,9 +15,18 @@ public class Health : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		currentHealth = GlobalController.Instance.currentHealth;
+		HealthBar.value = currentHealth;
 		alive = true;
-		currentHealth = maxHealth;
+		//currentHealth = maxHealth;
 	}
+
+
+	public void SavePlayer()
+	{
+		GlobalController.Instance.currentHealth = currentHealth;
+	}
+
 
 	public void TakeDamage(float amount) //player health reducing
 	{

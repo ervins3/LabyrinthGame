@@ -51,13 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Fading.cs" />
+     <Compile Include="Assets\FadingToDie.cs" />
      <Compile Include="Assets\FollowPlayer.cs" />
      <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\GlobalController.cs" />
      <Compile Include="Assets\Gun.cs" />
      <Compile Include="Assets\Health.cs" />
      <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\NextLeve.cs" />
      <Compile Include="Assets\OptionsMenu.cs" />
+     <Compile Include="Assets\PauseMenu.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_SMC_Camera.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_SMC_Handler.cs" />
      <Compile Include="Assets\SMC Pack 1\Demo\Files\V_Text.cs" />

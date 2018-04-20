@@ -7,6 +7,10 @@ public class OptionsMenu : MonoBehaviour {
 
 	public AudioMixer audioMixer; 
 
+	void Start(){
+		Screen.lockCursor = false;
+	}
+
 	public void SetVolume(float volume){
 
 		audioMixer.SetFloat ("volume", volume);

@@ -11,8 +11,15 @@ public class MainMenu : MonoBehaviour {
 
 	public void PlayGame(){
 
-		SceneManager.LoadScene (1);
+		StartCoroutine (FadeToNext());
 
+	}
+
+	IEnumerator FadeToNext()
+	{
+		float fadeTime = GameObject.Find("Canvas").GetComponent<Fading>().BeginFade(1);
+		yield return new WaitForSeconds(fadeTime);
+		SceneManager.LoadScene (1);
 	}
 
 	public void ExitGame(){

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -21,13 +23,21 @@ public class GameManager : MonoBehaviour {
 		{
 			gameHasEnded = true;
 			Debug.Log("GAME OVER");
-			Invoke("Restart", restartDelay);
+			//Invoke("Restart", restartDelay);
+			StartCoroutine(FadeToNext());
 		}
 	}
 
 	void Restart ()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	IEnumerator FadeToNext()
+	{
+		float fadeTime = GameObject.FindGameObjectWithTag("Player").GetComponent<FadingToDie>().BeginFade(1);
+		yield return new WaitForSeconds(fadeTime);
+		SceneManager.LoadScene (0);
 	}
 
 }

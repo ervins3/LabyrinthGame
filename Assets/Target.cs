@@ -91,6 +91,7 @@ public class Target : MonoBehaviour {
 		// If the player has health to lose...
 		if (playerHealth.currentHealth > 0) {
 			// ... damage the player.
+			Debug.Log("nav ded");
 			playerHealth.TakeDamage (damage);
 			audioSource.PlayOneShot (playerHurtSound);
 		} else {
